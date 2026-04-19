@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F6FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Nút Back trên cùng bên trái -->
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_arrow_back"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Back"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Ảnh khoa khám (Sử dụng CardView để bo góc ảnh chuyên nghiệp) -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            android:layout_marginBottom="24dp">
+            <ImageView
+                android:id="@+id/imgDepartment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sample_department" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Label Tên khoa -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên khoa"
+            android:textSize="14sp"
+            android:textColor="#333"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+        
+        <!-- TextBox hiển thị tên khoa (centered theo yêu cầu) -->
+        <EditText
+            android:id="@+id/txtDepartmentName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_rounded"
+            android:padding="12dp"
+            android:text="Khoa Khám Tổng Quát"
+            android:enabled="false"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Label Mô tả -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mô tả"
+            android:textSize="14sp"
+            android:textColor="#333"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+        
+        <!-- TextBox hiển thị mô tả -->
+        <EditText
+            android:id="@+id/txtDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_rounded"
+            android:padding="12dp"
+            android:text="Mô tả: Khoa khám tổng quát chuyên tiếp nhận và điều trị các bệnh lý phổ biến, thực hiện các xét nghiệm định kỳ và tư vấn sức khỏe toàn diện cho bệnh nhân."
+            android:enabled="false"
+            android:textColor="#666"
+            android:textSize="15sp"
+            android:inputType="textMultiLine"
+            android:minLines="3"
+            android:gravity="top"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Tiêu đề Danh sách bác sĩ (centered theo yêu cầu) -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DANH SÁCH BÁC SĨ"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#000"
+            android:gravity="center"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- RecyclerView hiển thị danh sách bác sĩ -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerDoctors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"/>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

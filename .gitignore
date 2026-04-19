@@ -1,0 +1,41 @@
+# IntelliJ / Android Studio
+*.iml
+.idea/
+!.idea/codeStyles/
+!.idea/inspectionProfiles/
+
+# Gradle
+.gradle/
+build/
+**/build/
+
+# Local config
+local.properties
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Android captures / native
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Kotlin/Java compiled files
+*.class
+
+# Logs
+*.log
+
+# APK / AAB outputs
+*.apk
+*.aab
+
+# Keystore / signing (sensitive)
+*.jks
+*.keystore
+*.p12
+
+# Mapping / reports
+**/outputs/mapping/
+**/outputs/logs/

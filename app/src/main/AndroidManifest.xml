@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.SET_ALARM" />
+        </intent>
+    </queries>
+    <application
+        android:usesCleartextTraffic="true"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BTL_Android">
+
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".MainActivity1" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".NewsActivity"/>
+        <!-- Patient Activities -->
+        <activity android:name=".MedicalHistoryActivity" />
+        <activity android:name=".RecordDetailActivity1" />
+        <activity android:name=".ProfileEditActivity" />
+        <activity android:name=".ServiceDetailActivity" />
+        <activity android:name=".DoctorDetailActivity" />
+        <activity android:name=".CreateAppointmentActivity" />
+        <activity android:name=".AppointmentSuccessActivity" />
+        <activity android:name=".SetReminderActivity" />
+        <activity android:name=".TreatmentPlanActivity" />
+        <activity android:name=".AppointmentDetailActivity" />
+        <activity android:name=".PersonalInfoActivity" />
+        <receiver android:name=".ReminderReceiver" />
+
+        <!-- Doctor Activities -->
+        <activity android:name=".XemNhanhTtinActivity" />
+        <activity android:name=".DsBenhNhanBenhAnActivity" />
+        <activity android:name=".DsBenhNhanPhacDoActivity" />
+        <activity android:name=".DsBenhNhanTtinActivity" />
+        <activity android:name=".LichKhamActivity" />
+        <activity android:name=".ThongBaoActivity" />
+        <activity android:name=".CaNhanActivity" />
+        <activity android:name=".XemTtinBenhNhanActivity" />
+        <activity android:name=".XemPhacDoActivity" />
+        <activity android:name=".XemBenhAnActivity" />
+        <activity android:name=".ChinhSuaBenhAnActivity"/>
+        <activity android:name=".ChinhSuaPhacDoActivity"/>
+        <activity android:name=".ThemBenhAnActivity"/>
+        <activity android:name=".ThemPhacDoActivity"/>
+
+    </application>
+
+</manifest>

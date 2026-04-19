@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    tools:context=".TreatmentPlanActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="Phác đồ điều trị" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/btnSetReminder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="Đặt nhắc nhở" />
+
+            <!-- <<< SỬA LỖI: THAY THẾ CÁC TEXTVIEW FIX CỨNG >>> -->
+            <TextView
+                android:id="@+id/tvPrescriptionDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="4dp"
+                android:textColor="#333"
+                android:textSize="16sp"
+                tools:text="- Thuốc Loratadin 10mg\n- Hình thức: Uống\n- Số lần: 2 lần/ngày\n\nMục đích: Giảm các triệu chứng dị ứng.\n\nHướng dẫn: Uống sau khi ăn." />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

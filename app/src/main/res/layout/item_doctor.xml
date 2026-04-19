@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- Avatar -->
+        <ImageView
+            android:id="@+id/imgDoctor"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/sample_doctor"
+            android:background="@drawable/bg_circle"/>
+
+        <!-- Thông tin -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="12dp">
+
+            <TextView
+                android:id="@+id/txtDoctorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BS Nguyễn Thị A"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#000"/>
+
+            <TextView
+                android:id="@+id/txtSpecialty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chuyên khoa Nội tổng hợp"
+                android:textSize="14sp"
+                android:textColor="#666"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <!-- Icon mũi tên chỉ dẫn -->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back"
+            android:rotation="180"
+            android:alpha="0.3"
+            app:tint="#000" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

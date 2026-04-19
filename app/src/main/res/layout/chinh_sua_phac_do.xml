@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- Back -->
+    <ImageView
+        android:id="@+id/btn_back"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@android:drawable/ic_media_previous"
+        android:contentDescription="Quay lại"
+        app:tint="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Chỉnh sửa thông tin phác đồ"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        app:layout_constraintStart_toEndOf="@id/btn_back"
+        app:layout_constraintTop_toTopOf="@id/btn_back"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Scroll -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/txt_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- TÊN THUỐC -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tên thuốc:"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+
+            <EditText
+                android:id="@+id/edtMedicineName"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@android:drawable/edit_text"
+                android:padding="8dp"/>
+
+            <!-- HÌNH THỨC -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hình thức:"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginTop="12dp"/>
+
+            <EditText
+                android:id="@+id/edtMethod"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@android:drawable/edit_text"
+                android:padding="8dp"/>
+
+            <!-- SỐ LẦN -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Số lần:"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginTop="12dp"/>
+
+            <EditText
+                android:id="@+id/edtTimes"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:inputType="number"
+                android:background="@android:drawable/edit_text"
+                android:padding="8dp"/>
+
+            <!-- MỤC ĐÍCH -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mục đích:"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginTop="12dp"/>
+
+            <EditText
+                android:id="@+id/edtPurpose"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@android:drawable/edit_text"
+                android:padding="8dp"
+                android:gravity="top"/>
+
+            <!-- HƯỚNG DẪN -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hướng dẫn:"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginTop="12dp"/>
+
+            <EditText
+                android:id="@+id/edtGuide"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:background="@android:drawable/edit_text"
+                android:padding="8dp"
+                android:gravity="top"/>
+
+            <!-- BUTTON -->
+            <Button
+                android:id="@+id/btn_xac_nhan_sua"
+                android:layout_width="200dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="24dp"
+                android:layout_gravity="center"
+                android:text="Xác nhận Chỉnh sửa"
+                android:textSize="14sp"
+                android:backgroundTint="#4CAF50"
+                android:textColor="#FFFFFF"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

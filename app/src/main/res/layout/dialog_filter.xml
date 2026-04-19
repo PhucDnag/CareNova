@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:text="Bộ lọc tìm kiếm"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/edtFilterDoctor"
+        android:hint="Tên bác sĩ (VD: Tuấn)"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="Thời gian khám:"
+        android:textStyle="italic"
+        android:textSize="12sp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvFilterDay"
+            android:hint="Ngày"
+            android:gravity="center"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:background="@android:drawable/edit_text"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+        <View android:layout_width="10dp" android:layout_height="1dp"/>
+
+        <TextView
+            android:id="@+id/tvFilterMonth"
+            android:hint="Tháng"
+            android:gravity="center"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:background="@android:drawable/edit_text"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+        <View android:layout_width="10dp" android:layout_height="1dp"/>
+
+        <TextView
+            android:id="@+id/tvFilterYear"
+            android:hint="Năm"
+            android:gravity="center"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:background="@android:drawable/edit_text"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnApplyFilter"
+        android:text="Áp dụng lọc"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#2196F3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnResetFilter"
+        android:text="Hủy / Xem tất cả"
+        android:backgroundTint="#757575"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

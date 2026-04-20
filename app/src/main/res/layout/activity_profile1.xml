@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hồ sơ cá nhân"
+            android:text="@string/patient_profile_title"
             android:textColor="?attr/colorOnSurface"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Quản lý thông tin và tiện ích của bạn"
+            android:text="@string/patient_profile_subtitle"
             android:textColor="?attr/colorOnSurfaceVariant"
             android:textSize="14sp" />
 
@@ -64,7 +64,7 @@
                         android:id="@+id/tvProfileName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nguyễn Đăng Tín"
+                        tools:text="Nguyễn Đăng Tín"
                         android:textColor="?attr/colorOnSurface"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -74,7 +74,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="Mã số bệnh nhân: 001006"
+                        tools:text="Mã số bệnh nhân: 001006"
                         android:textColor="?attr/colorOnSurfaceVariant"
                         android:textSize="13sp" />
                 </LinearLayout>
@@ -106,7 +106,7 @@
                     android:gravity="center_vertical"
                     android:paddingHorizontal="16dp"
                     android:paddingVertical="12dp"
-                    android:text="Về chúng tôi"
+                    android:text="@string/about_us"
                     android:textColor="?attr/colorOnSurface"
                     android:textSize="15sp" />
 
@@ -125,7 +125,7 @@
                     android:gravity="center_vertical"
                     android:paddingHorizontal="16dp"
                     android:paddingVertical="12dp"
-                    android:text="Thông tin cá nhân"
+                    android:text="@string/personal_info"
                     android:textColor="?attr/colorOnSurface"
                     android:textSize="15sp" />
 
@@ -144,7 +144,7 @@
                     android:gravity="center_vertical"
                     android:paddingHorizontal="16dp"
                     android:paddingVertical="12dp"
-                    android:text="Lịch sử khám bệnh"
+                    android:text="@string/medical_history"
                     android:textColor="?attr/colorOnSurface"
                     android:textSize="15sp" />
 
@@ -163,7 +163,7 @@
                     android:gravity="center_vertical"
                     android:paddingHorizontal="16dp"
                     android:paddingVertical="12dp"
-                    android:text="Nhắc nhở"
+                    android:text="@string/reminder"
                     android:textColor="?attr/colorOnSurface"
                     android:textSize="15sp" />
 
@@ -193,7 +193,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
-                        android:text="Dark mode"
+                        android:text="@string/dark_mode"
                         android:textColor="?attr/colorOnSurface"
                         android:textSize="15sp"
                         android:textStyle="bold" />
@@ -202,6 +202,47 @@
                         android:id="@+id/switch_dark_mode_patient"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:alpha="0.6"
+                    android:background="?attr/colorOutline" />
+
+                <LinearLayout
+                    android:id="@+id/layoutLanguage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="12dp">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/ic_theme"
+                        app:tint="?attr/colorOnSurface" />
+
+                    <TextView
+                        android:id="@+id/tvLanguage"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:text="@string/language_row_default"
+                        android:textColor="?attr/colorOnSurface"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_arrow_forward"
+                        app:tint="?attr/colorOnSurfaceVariant" />
                 </LinearLayout>
 
                 <View
@@ -219,7 +260,7 @@
                     android:gravity="center_vertical"
                     android:paddingHorizontal="16dp"
                     android:paddingVertical="12dp"
-                    android:text="Phản hồi với chúng tôi"
+                    android:text="@string/feedback_with_us"
                     android:textColor="?attr/colorOnSurface"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -234,7 +275,7 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:paddingVertical="12dp"
-            android:text="Đăng xuất"
+            android:text="@string/logout"
             android:textColor="@color/error"
             app:icon="@drawable/ic_logout"
             app:iconTint="@color/error" />

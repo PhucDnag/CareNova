@@ -3,13 +3,14 @@ package com.example.btl_android;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.google.android.material.switchmaterial.SwitchMaterial;
 
@@ -21,11 +22,12 @@ public class CaNhanActivity extends AppCompatActivity {
 
     LinearLayout navHome, navLichKham, navThongBao;
     LinearLayout layoutLogout;
+    com.google.android.material.card.MaterialCardView layoutLanguage;
     SwitchMaterial switchDarkMode;
 
     ImageView btnBack;
 
-    TextView txtDoctorName, txtSpecialty, txtPhone;
+    TextView txtDoctorName, txtSpecialty, txtPhone, tvDoctorLanguage;
     TextView txtEducation1, txtEducation2;
 
     DoctorRepository doctorRepository;
@@ -50,6 +52,8 @@ public class CaNhanActivity extends AppCompatActivity {
         txtEducation2 = findViewById(R.id.txtEducation2);
         btnBack = findViewById(R.id.btn_back);
         layoutLogout = findViewById(R.id.layout_logout);
+        layoutLanguage = findViewById(R.id.layout_language);
+        tvDoctorLanguage = findViewById(R.id.tvDoctorLanguage);
         switchDarkMode = findViewById(R.id.switch_dark_mode);
 
         btnBack.setOnClickListener(v -> finish());
@@ -57,6 +61,7 @@ public class CaNhanActivity extends AppCompatActivity {
         // ===== LOAD DATA =====
         loadDoctorInfo();
         setupDarkMode();
+        updateLanguageLabel();
 
         // ===== TRANG CHỦ =====
         navHome.setOnClickListener(v -> {
@@ -73,12 +78,14 @@ public class CaNhanActivity extends AppCompatActivity {
             startActivity(new Intent(this, ThongBaoActivity.class));
         });
 
+        layoutLanguage.setOnClickListener(v -> showLanguagePicker());
+
         // ===== ĐĂNG XUẤT =====
         layoutLogout.setOnClickListener(v -> {
             Intent intent = new Intent(CaNhanActivity.this, LoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
-            Toast.makeText(CaNhanActivity.this, "Đã đăng xuất", Toast.LENGTH_SHORT).show();
+            Toast.makeText(CaNhanActivity.this, getString(R.string.doctor_logout), Toast.LENGTH_SHORT).show();
         });
     }
 
@@ -105,6 +112,35 @@ public class CaNhanActivity extends AppCompatActivity {
             // Nếu muốn tách học vấn thành nhiều dòng
             txtEducation1.setText("- " + doctor.getEducation());
             txtEducation2.setText("");
+        }
+    }
+
+    private void showLanguagePicker() {
+        String[] languageNames = {
+                getString(R.string.language_vietnamese),
+                getString(R.string.language_english)
+        };
+        String[] languageCodes = {"vi", "en"};
+
+        String currentLanguage = AppCompatDelegate.getApplicationLocales().toLanguageTags();
+        int checkedIndex = currentLanguage.startsWith("en") ? 1 : 0;
+
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.choose_language)
+                .setSingleChoiceItems(languageNames, checkedIndex, (dialog, which) -> {
+                    dialog.dismiss();
+                    LanguageManager.setLanguageAndRestart(this, languageCodes[which]);
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
+    }
+
+    private void updateLanguageLabel() {
+        String currentLanguage = AppCompatDelegate.getApplicationLocales().toLanguageTags();
+        if (currentLanguage.startsWith("en")) {
+            tvDoctorLanguage.setText(getString(R.string.language_row_title, getString(R.string.language_english)));
+        } else {
+            tvDoctorLanguage.setText(getString(R.string.language_row_title, getString(R.string.language_vietnamese)));
         }
     }
 }

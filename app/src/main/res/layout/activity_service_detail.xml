@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Thông tin dịch vụ"
+                android:text="@string/service_detail_title"
                 android:textColor="?attr/colorOnSurface"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -60,7 +60,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Dịch vụ"
+                    android:text="@string/service"
                     android:textColor="#E8EEFF"
                     android:textSize="13sp" />
 
@@ -93,14 +93,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:paddingVertical="12dp"
-            android:text="Đặt lịch khám ngay"
+            android:text="@string/book_appointment_now"
             app:icon="@drawable/ic_appointment" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
-            android:text="Bác sĩ đề xuất"
+            android:text="@string/recommended_doctor"
             android:textColor="?attr/colorOnSurface"
             android:textSize="17sp"
             android:textStyle="bold" />
@@ -140,7 +140,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bác sĩ Nguyễn Thị A"
+                        android:text="@string/doctor_name_recommended_sample"
                         android:textColor="?attr/colorOnSurface"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -149,7 +149,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
-                        android:text="Chuyên khoa: Nội tổng hợp"
+                        android:text="@string/doctor_specialty_sample"
                         android:textColor="?attr/colorOnSurfaceVariant"
                         android:textSize="13sp" />
                 </LinearLayout>

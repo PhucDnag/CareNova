@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:navigationIcon="@drawable/ic_arrow_back"
-        app:title="Thông tin lượt khám" />
+        app:title="@string/appointment_detail_title" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -98,7 +98,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Xem bệnh án"
+                    android:text="@string/view_medical_record"
                     android:layout_marginEnd="8dp"/>
 
                 <Button
@@ -108,7 +108,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"
-                    android:text="Xem phác đồ điều trị" />
+                    android:text="@string/view_treatment_plan" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

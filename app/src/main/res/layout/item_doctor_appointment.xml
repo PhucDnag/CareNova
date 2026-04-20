@@ -19,7 +19,7 @@
             android:id="@+id/tvPatientName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tên bệnh nhân: Nguyễn Văn A"
+            android:text="@string/doctor_patient_name_sample"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="#000"/>
@@ -28,14 +28,14 @@
             android:id="@+id/tvAppointmentDateTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Thời gian: 09:00 - 25/12/2024"
+            android:text="@string/doctor_appointment_time_sample"
             android:layout_marginTop="4dp"/>
 
         <TextView
             android:id="@+id/tvAppointmentStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Trạng thái: Chờ duyệt"
+            android:text="@string/doctor_appointment_status_pending_sample"
             android:textStyle="italic"
             android:layout_marginTop="4dp"/>
 
@@ -43,7 +43,7 @@
             android:id="@+id/btnConfirmAppointment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Xác nhận"
+            android:text="@string/confirm"
             android:layout_marginTop="12dp"
             android:layout_gravity="end"
             android:visibility="gone" 

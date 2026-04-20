@@ -30,7 +30,7 @@
             android:id="@+id/txt_page_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Thông tin bệnh nhân"
+            android:text="@string/patient_info_title"
             android:textSize="22sp"
             android:textStyle="bold"
             android:layout_marginStart="12dp"
@@ -102,7 +102,7 @@
                 android:id="@+id/txt_title_section"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thông tin cá nhân"
+                android:text="@string/personal_info"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="#000"
@@ -191,7 +191,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bệnh án"
+                        android:text="@string/record"
                         android:textSize="16sp"
                         android:layout_marginTop="6dp"/>
                 </LinearLayout>
@@ -213,7 +213,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Phác đồ"
+                        android:text="@string/treatment_plan"
                         android:textSize="16sp"
                         android:layout_marginTop="6dp"/>
                 </LinearLayout>
@@ -237,7 +237,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Thêm Bệnh Án"
+            android:text="@string/add_medical_record"
             android:layout_marginEnd="8dp"/>
 
         <Button
@@ -245,7 +245,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Thêm Phác Đồ"
+            android:text="@string/add_treatment_plan"
             android:layout_marginStart="8dp"/>
 
     </LinearLayout>

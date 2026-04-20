@@ -1,5 +1,6 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
@@ -13,7 +14,7 @@
 
         <TextView
             android:id="@+id/tvDate"
-            android:text="20/10/2023"
+            tools:text="20/10/2023"
             android:textStyle="bold"
             android:textSize="18sp"
             android:textColor="#009688"
@@ -22,7 +23,7 @@
 
         <TextView
             android:id="@+id/tvDiagnosis"
-            android:text="Chẩn đoán: Viêm họng"
+            tools:text="Chẩn đoán: Viêm họng"
             android:textSize="16sp"
             android:layout_marginTop="4dp"
             android:layout_width="wrap_content"
@@ -30,7 +31,7 @@
 
         <TextView
             android:id="@+id/tvDoctor"
-            android:text="BS. Nguyễn Văn A"
+            tools:text="BS. Nguyễn Văn A"
             android:textSize="14sp"
             android:textStyle="italic"
             android:layout_marginTop="4dp"

@@ -80,9 +80,9 @@ public class XemPhacDoActivity extends AppCompatActivity {
 
             patientId = cursor.getInt(0);
 
-            tvPatientName.setText("Bệnh nhân " + cursor.getString(1));
+            tvPatientName.setText(getString(R.string.patient_label) + " " + cursor.getString(1));
             tvGenderAge.setText(cursor.getString(2) + " - " + cursor.getString(3));
-            tvPatientCode.setText("Mã BN: " + patientId);
+            tvPatientCode.setText(getString(R.string.patient_id_format, String.valueOf(patientId)));
 
             tvMedicineName.setText(cursor.getString(4));
             tvMethod.setText(cursor.getString(5));
@@ -97,16 +97,16 @@ public class XemPhacDoActivity extends AppCompatActivity {
     private void showDeleteDialog() {
 
         new AlertDialog.Builder(this)
-                .setTitle("Xác nhận xóa")
-                .setMessage("Bạn có chắc muốn xóa phác đồ này không?")
-                .setPositiveButton("Xóa", (dialog, which) -> {
+                .setTitle(R.string.delete_confirm_title)
+                .setMessage(R.string.delete_treatment_confirm_message)
+                .setPositiveButton(R.string.delete, (dialog, which) -> {
 
                     boolean success = repository.deleteTreatment(treatmentId);
 
                     if (success) {
                         Toast.makeText(
                                 this,
-                                "Xóa thành công",
+                                getString(R.string.toast_delete_success),
                                 Toast.LENGTH_SHORT
                         ).show();
 
@@ -114,13 +114,13 @@ public class XemPhacDoActivity extends AppCompatActivity {
                     } else {
                         Toast.makeText(
                                 this,
-                                "Xóa thất bại",
+                                getString(R.string.toast_delete_failed),
                                 Toast.LENGTH_SHORT
                         ).show();
                     }
 
                 })
-                .setNegativeButton("Hủy", null)
+                .setNegativeButton(R.string.cancel, null)
                 .show();
     }
 

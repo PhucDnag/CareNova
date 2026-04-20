@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.card.MaterialCardView;
+
 public class ServiceDetailActivity extends AppCompatActivity {
 
     @Override
@@ -20,7 +22,7 @@ public class ServiceDetailActivity extends AppCompatActivity {
         TextView tvServiceTitle = findViewById(R.id.tvServiceTitle);
         TextView tvServiceDescription = findViewById(R.id.tvServiceDescription);
         Button btnCreateAppointment = findViewById(R.id.btnCreateAppointment);
-        View layoutDoctorInfo = findViewById(R.id.layoutDoctorInfo);
+        MaterialCardView layoutDoctorInfo = findViewById(R.id.layoutDoctorInfo);
 
         // Xử lý nút back
         ivBack.setOnClickListener(v -> finish());

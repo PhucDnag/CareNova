@@ -29,7 +29,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Xin chào!"
+                    android:text="@string/home_greeting"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
 
@@ -37,7 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Bạn muốn khám gì hôm nay?"
+                    android:text="@string/home_hero_title"
                     android:textColor="@color/white"
                     android:textSize="22sp"
                     android:textStyle="bold" />
@@ -46,7 +46,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Đặt lịch nhanh, tìm bác sĩ phù hợp và theo dõi lịch hẹn dễ dàng."
+                    android:text="@string/home_hero_subtitle"
                     android:textColor="#E8EEFF"
                     android:textSize="13sp" />
             </LinearLayout>
@@ -56,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:hint="Tìm kiếm dịch vụ"
+            android:hint="@string/home_search_hint"
             app:boxBackgroundMode="filled"
             app:boxCornerRadiusBottomEnd="14dp"
             app:boxCornerRadiusBottomStart="14dp"
@@ -92,7 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                android:text="Dịch vụ nổi bật"
+                android:text="@string/home_featured_services"
                 android:textColor="?attr/colorOnSurface"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -129,7 +129,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:text="Chuyên khoa"
+                        android:text="@string/home_specialist"
                         android:textColor="?attr/colorOnSurface"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -157,7 +157,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:text="Tổng quát"
+                        android:text="@string/home_general"
                         android:textColor="?attr/colorOnSurface"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -185,7 +185,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:text="Nha khoa"
+                        android:text="@string/home_dentistry"
                         android:textColor="?attr/colorOnSurface"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -213,7 +213,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:text="Tim mạch"
+                        android:text="@string/home_cardiology"
                         android:textColor="?attr/colorOnSurface"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -241,7 +241,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:text="Da liễu"
+                        android:text="@string/home_dermatology"
                         android:textColor="?attr/colorOnSurface"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -269,7 +269,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:text="Nhãn khoa"
+                        android:text="@string/home_ophthalmology"
                         android:textColor="?attr/colorOnSurface"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -297,7 +297,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:text="Xét nghiệm"
+                        android:text="@string/home_test"
                         android:textColor="?attr/colorOnSurface"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -336,7 +336,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
-                        android:text="Tin tức y tế"
+                        android:text="@string/news_medical"
                         android:textColor="?attr/colorOnSurface"
                         android:textSize="16sp"
                         android:textStyle="bold" />

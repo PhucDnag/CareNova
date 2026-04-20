@@ -26,7 +26,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:text="Thông tin phác đồ"
+        android:text="@string/treatment_info_title"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="#000000"
@@ -100,7 +100,7 @@
 
             <!-- Tên thuốc -->
             <TextView
-                android:text="Tên thuốc:"
+                android:text="@string/medicine_name"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:layout_width="wrap_content"
@@ -114,7 +114,7 @@
 
             <!-- Hình thức -->
             <TextView
-                android:text="Hình thức:"
+                android:text="@string/method"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:layout_marginTop="12dp"
@@ -129,7 +129,7 @@
 
             <!-- Số lần -->
             <TextView
-                android:text="Số lần:"
+                android:text="@string/number_of_times"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:layout_marginTop="12dp"
@@ -144,7 +144,7 @@
 
             <!-- Mục đích -->
             <TextView
-                android:text="Mục đích:"
+                android:text="@string/purpose"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:layout_marginTop="12dp"
@@ -159,7 +159,7 @@
 
             <!-- Hướng dẫn -->
             <TextView
-                android:text="Hướng dẫn:"
+                android:text="@string/guide"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:layout_marginTop="12dp"
@@ -184,7 +184,7 @@
                     android:id="@+id/btn_them_moi"
                     android:layout_width="120dp"
                     android:layout_height="48dp"
-                    android:text="Thêm mới"
+                    android:text="@string/add_new"
                     android:backgroundTint="#2196F3"
                     android:textColor="#FFFFFF"/>
 
@@ -193,7 +193,7 @@
                     android:layout_width="120dp"
                     android:layout_height="48dp"
                     android:layout_marginStart="16dp"
-                    android:text="Chỉnh sửa"
+                    android:text="@string/edit"
                     android:backgroundTint="#4CAF50"
                     android:textColor="#FFFFFF"/>
 
@@ -203,7 +203,7 @@
                     android:layout_height="48dp"
                     android:layout_marginStart="16dp"
                     android:backgroundTint="#EF0303"
-                    android:text="Xóa"
+                    android:text="@string/delete"
                     android:textColor="#FFFFFF" />
 
             </LinearLayout>

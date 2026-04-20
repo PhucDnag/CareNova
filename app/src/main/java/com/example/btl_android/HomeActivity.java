@@ -48,7 +48,7 @@ public class HomeActivity extends AppCompatActivity {
         // ===== KHÁM NGAY =====
         btnKhamNgay1.setOnClickListener(v -> {
             Toast.makeText(this,
-                    "Đã gửi thông báo tới bệnh nhân!",
+                    getString(R.string.toast_sent_notification),
                     Toast.LENGTH_SHORT).show();
         });
 

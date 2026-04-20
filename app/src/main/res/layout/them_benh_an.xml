@@ -14,7 +14,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:src="@android:drawable/ic_media_previous"
-        android:contentDescription="Quay lại"
+        android:contentDescription="@string/cd_back"
         app:tint="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -25,7 +25,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:text="Thêm thông tin bệnh án"
+        android:text="@string/add_medical_record_title"
         android:textSize="22sp"
         android:textStyle="bold"
         android:textColor="#000"
@@ -94,7 +94,7 @@
                         android:layout_marginTop="6dp">
 
                         <TextView
-                            android:text="Ngày khám:"
+                            android:text="@string/visit_date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
 
@@ -104,7 +104,7 @@
                             android:layout_height="48dp"
                             android:layout_weight="1"
                             android:layout_marginStart="8dp"
-                            android:hint="dd/mm/yyyy"
+                            android:hint="@string/hint_visit_date"
                             android:background="@android:drawable/edit_text"/>
                     </LinearLayout>
 
@@ -113,7 +113,7 @@
 
             <!-- Nguyên nhân -->
             <TextView
-                android:text="Nguyên nhân khám bệnh"
+                android:text="@string/visit_reason_title"
                 android:textStyle="bold"
                 android:layout_marginTop="12dp"
                 android:layout_width="wrap_content"
@@ -123,12 +123,12 @@
                 android:id="@+id/edtReason"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="Nhập nguyên nhân"
+                android:hint="@string/hint_visit_reason"
                 android:background="@android:drawable/edit_text"/>
 
             <!-- Trước điều trị -->
             <TextView
-                android:text="Tình trạng trước điều trị"
+                android:text="@string/before_treatment_status"
                 android:textStyle="bold"
                 android:layout_marginTop="12dp"
                 android:layout_width="wrap_content"
@@ -138,12 +138,12 @@
                 android:id="@+id/edtBeforeTreatment"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="Nhập tình trạng trước điều trị"
+                android:hint="@string/hint_before_treatment"
                 android:background="@android:drawable/edit_text"/>
 
             <!-- Sau điều trị -->
             <TextView
-                android:text="Tình trạng sau điều trị"
+                android:text="@string/after_treatment_status"
                 android:textStyle="bold"
                 android:layout_marginTop="12dp"
                 android:layout_width="wrap_content"
@@ -153,12 +153,12 @@
                 android:id="@+id/edtAfterTreatment"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="Nhập tình trạng sau điều trị"
+                android:hint="@string/hint_after_treatment"
                 android:background="@android:drawable/edit_text"/>
 
             <!-- Chẩn đoán -->
             <TextView
-                android:text="Chẩn đoán"
+                android:text="@string/diagnosis"
                 android:textStyle="bold"
                 android:layout_marginTop="12dp"
                 android:layout_width="wrap_content"
@@ -168,12 +168,12 @@
                 android:id="@+id/edtDiagnosis"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="Nhập chẩn đoán"
+                android:hint="@string/hint_diagnosis"
                 android:background="@android:drawable/edit_text"/>
 
             <!-- Mô tả -->
             <TextView
-                android:text="Mô tả"
+                android:text="@string/description"
                 android:textStyle="bold"
                 android:layout_marginTop="12dp"
                 android:layout_width="wrap_content"
@@ -183,7 +183,7 @@
                 android:id="@+id/edtDescription"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="Nhập mô tả"
+                android:hint="@string/hint_description"
                 android:background="@android:drawable/edit_text"/>
 
             <!-- Confirm -->
@@ -193,7 +193,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="24dp"
                 android:layout_gravity="center"
-                android:text="Xác nhận Thêm"
+                android:text="@string/confirm_add"
                 android:backgroundTint="#2196F3"
                 android:textColor="#FFFFFF"/>
 

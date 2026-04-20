@@ -15,7 +15,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:src="@android:drawable/ic_media_previous"
-        android:contentDescription="Quay lại"
+        android:contentDescription="@string/cd_back"
         app:tint="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -25,7 +25,7 @@
         android:id="@+id/txt_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thêm phác đồ"
+        android:text="@string/add_treatment_title"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="#000000"
@@ -60,7 +60,7 @@
                 <TextView
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"
-                    android:text="Tên thuốc:"
+                    android:text="@string/medicine_name"
                     android:textStyle="bold"/>
 
                 <EditText
@@ -68,7 +68,7 @@
                     android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:layout_weight="1"
-                    android:hint="Nhập tên thuốc"
+                    android:hint="@string/hint_medicine_name"
                     android:background="@android:drawable/edit_text"
                     android:padding="8dp"/>
             </LinearLayout>
@@ -84,7 +84,7 @@
                 <TextView
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"
-                    android:text="Hình thức:"
+                    android:text="@string/method"
                     android:textStyle="bold"/>
 
                 <EditText
@@ -92,7 +92,7 @@
                     android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:layout_weight="1"
-                    android:hint="Nhập hình thức"
+                    android:hint="@string/hint_method"
                     android:background="@android:drawable/edit_text"
                     android:padding="8dp"/>
             </LinearLayout>
@@ -108,7 +108,7 @@
                 <TextView
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"
-                    android:text="Số lần:"
+                    android:text="@string/number_of_times"
                     android:textStyle="bold"/>
 
                 <EditText
@@ -117,7 +117,7 @@
                     android:layout_height="48dp"
                     android:layout_weight="1"
                     android:inputType="number"
-                    android:hint="Nhập số lần"
+                    android:hint="@string/hint_number_of_times"
                     android:background="@android:drawable/edit_text"
                     android:padding="8dp"/>
             </LinearLayout>
@@ -133,7 +133,7 @@
                 <TextView
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"
-                    android:text="Mục đích:"
+                    android:text="@string/purpose"
                     android:textStyle="bold"/>
 
                 <EditText
@@ -141,7 +141,7 @@
                     android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:layout_weight="1"
-                    android:hint="Nhập mục đích"
+                    android:hint="@string/hint_purpose"
                     android:background="@android:drawable/edit_text"
                     android:padding="8dp"/>
             </LinearLayout>
@@ -156,7 +156,7 @@
                 <TextView
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"
-                    android:text="Hướng dẫn:"
+                    android:text="@string/guide"
                     android:textStyle="bold"
                     android:layout_marginTop="12dp"/>
 
@@ -165,7 +165,7 @@
                     android:layout_width="0dp"
                     android:layout_height="120dp"
                     android:layout_weight="1"
-                    android:hint="Nhập hướng dẫn"
+                    android:hint="@string/hint_guide"
                     android:background="@android:drawable/edit_text"
                     android:gravity="top"
                     android:padding="8dp"/>
@@ -178,7 +178,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="24dp"
                 android:layout_gravity="center"
-                android:text="Xác nhận Thêm"
+                android:text="@string/confirm_add"
                 android:textSize="14sp"
                 android:backgroundTint="#2196F3"
                 android:textColor="#FFFFFF"/>

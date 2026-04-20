@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Đặt khám thành công"
+        android:text="@string/appointment_success"
         android:textColor="#000000"
         android:textSize="22sp"
         android:textStyle="bold" />
@@ -29,6 +29,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Trang chủ" />
+        android:text="@string/nav_home" />
 
 </LinearLayout>

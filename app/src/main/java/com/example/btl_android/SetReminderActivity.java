@@ -70,11 +70,11 @@ public class SetReminderActivity extends AppCompatActivity {
         btnConfirm.setOnClickListener(v -> {
             String message = edtMessage.getText().toString();
             if (message.isEmpty()) {
-                Toast.makeText(this, "Vui lòng nhập lời nhắc", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.toast_enter_reminder_message), Toast.LENGTH_SHORT).show();
                 return;
             }
             if (selectedHour == -1) {
-                Toast.makeText(this, "Vui lòng chọn giờ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.toast_pick_time), Toast.LENGTH_SHORT).show();
                 return;
             }
             boolean isVibrate = switchVibrate.isChecked();
@@ -102,13 +102,13 @@ public class SetReminderActivity extends AppCompatActivity {
         if (repeatDays.isEmpty()) {
             // NẾU KHÔNG CHỌN NGÀY LẶP LẠI -> Đặt báo thức 1 lần
             scheduleSingleAlarm(alarmManager, hour, minute, message, isVibrate);
-            Toast.makeText(this, "Đã đặt lời nhắc 1 lần!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toast_one_time_reminder_set), Toast.LENGTH_SHORT).show();
         } else {
             // NẾU CÓ CHỌN NGÀY LẶP LẠI -> Lên lịch cho từng ngày được chọn
             for (int dayOfWeek : repeatDays) {
                 scheduleWeeklyAlarm(alarmManager, hour, minute, message, dayOfWeek, isVibrate);
             }
-            Toast.makeText(this, "Đã đặt lời nhắc định kỳ hàng tuần!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toast_weekly_reminder_set), Toast.LENGTH_SHORT).show();
         }
         finish(); // Thoát màn hình sau khi đặt xong
     }
@@ -142,13 +142,13 @@ public class SetReminderActivity extends AppCompatActivity {
                         alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
                     } catch (SecurityException e) {
                         e.printStackTrace();
-                        Toast.makeText(this, "Lỗi bảo mật: Không thể đặt báo thức", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, getString(R.string.toast_alarm_permission_error), Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     // Chưa có quyền -> Mở trang cài đặt để người dùng cấp quyền
                     Intent intent2 = new Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM);
                     startActivity(intent2);
-                    Toast.makeText(this, "Vui lòng cấp quyền báo thức chính xác cho ứng dụng và thử lại!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, getString(R.string.toast_need_exact_alarm_permission), Toast.LENGTH_LONG).show();
                     return; // Dừng việc đặt báo thức lại cho đến khi có quyền
                 }
             } else {
@@ -197,13 +197,12 @@ public class SetReminderActivity extends AppCompatActivity {
                         alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
                     } catch (SecurityException e) {
                         e.printStackTrace();
-                        Toast.makeText(this, "Lỗi bảo mật: Không thể đặt báo thức", Toast.LENGTH_SHORT).show();
-                    }
+                        Toast.makeText(this, getString(R.string.toast_alarm_permission_error), Toast.LENGTH_SHORT).show();                    }
                 } else {
                     // Chưa có quyền -> Mở trang cài đặt để người dùng cấp quyền
                     Intent intent2 = new Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM);
                     startActivity(intent2);
-                    Toast.makeText(this, "Vui lòng cấp quyền báo thức chính xác cho ứng dụng và thử lại!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, getString(R.string.toast_need_exact_alarm_permission), Toast.LENGTH_LONG).show();
                     return; // Dừng việc đặt báo thức lại cho đến khi có quyền
                 }
             } else {
@@ -230,10 +229,10 @@ public class SetReminderActivity extends AppCompatActivity {
         // Kiểm tra xem thiết bị có ứng dụng Đồng hồ hỗ trợ Intent này không
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
-            Toast.makeText(this, "Đã thêm báo thức vào ứng dụng Đồng hồ!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toast_alarm_added_to_clock), Toast.LENGTH_SHORT).show();
             finish();
         } else {
-            Toast.makeText(this, "Không tìm thấy ứng dụng đồng hồ hỗ trợ!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toast_no_clock_app), Toast.LENGTH_SHORT).show();
         }
     }
     private ArrayList<Integer> getRepeatDays() {

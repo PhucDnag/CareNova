@@ -13,7 +13,7 @@
         android:padding="8dp">
 
         <TextView
-            android:text="Danh sách khám"
+            android:text="@string/exam_list"
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_weight="1"
@@ -31,7 +31,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="LỊCH SỬ KHÁM BỆNH"
+        android:text="@string/medical_history_upper"
         android:textSize="22sp"
         android:textStyle="bold"
         android:textColor="#00796B"
@@ -42,7 +42,7 @@
         android:id="@+id/btnTestAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="+ Thêm dữ liệu Test (Debug)"
+        android:text="@string/add_test_data_debug"
         android:backgroundTint="#FF9800"
         android:textColor="#FFFFFF"
         android:layout_marginBottom="10dp"/>

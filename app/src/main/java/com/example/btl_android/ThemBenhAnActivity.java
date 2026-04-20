@@ -46,7 +46,7 @@ public class ThemBenhAnActivity extends AppCompatActivity {
 
         if (patientId == -1) {
             Toast.makeText(this,
-                    "Lỗi: Không có thông tin bệnh nhân.",
+                    getString(R.string.toast_error_missing_patient_info),
                     Toast.LENGTH_SHORT).show();
             finish();
             return;
@@ -86,7 +86,7 @@ public class ThemBenhAnActivity extends AppCompatActivity {
         if (patient != null) {
             tvPatientName.setText(patient.getFullName());
             tvPatientInfo.setText(patient.getGender() + ", " + patient.getDob());
-            tvPatientCode.setText("Mã BN: BN00" + patient.getId());
+            tvPatientCode.setText(getString(R.string.patient_code_format, patient.getId()));
         }
     }
 
@@ -101,7 +101,7 @@ public class ThemBenhAnActivity extends AppCompatActivity {
 
         if (visitDate.isEmpty() || diagnosis.isEmpty()) {
             Toast.makeText(this,
-                    "Vui lòng nhập đầy đủ thông tin",
+                    getString(R.string.toast_fill_required_info),
                     Toast.LENGTH_SHORT).show();
             return;
         }
@@ -129,7 +129,7 @@ public class ThemBenhAnActivity extends AppCompatActivity {
                 runOnUiThread(() -> {
 
                     new AlertDialog.Builder(this)
-                            .setTitle("AI Phân tích")
+                            .setTitle(R.string.ai_analysis_title)
                             .setMessage(aiResult)
                             .setCancelable(false)
                             .setPositiveButton("OK", (dialog, which) -> {
@@ -143,7 +143,7 @@ public class ThemBenhAnActivity extends AppCompatActivity {
 
                 runOnUiThread(() -> {
                     Toast.makeText(this,
-                            "AI lỗi: " + e.getMessage(),
+                            getString(R.string.toast_ai_error, e.getMessage()),
                             Toast.LENGTH_LONG).show();
 
                     // vẫn quay lại màn trước nếu AI lỗi

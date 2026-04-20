@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@android:color/transparent"
-            app:title="TẠO LỊCH HẸN"
+            app:title="@string/create_appointment_title"
             app:titleCentered="true"
             app:navigationIcon="@drawable/ic_arrow_back"/>
 
@@ -47,7 +47,7 @@
                     <TextView
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="Người đặt:"
+                        android:text="@string/booker"
                         android:textStyle="bold"
                         android:textColor="#333"/>
                     <EditText
@@ -71,7 +71,7 @@
                     <TextView
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="SĐT:"
+                        android:text="@string/phone"
                         android:textStyle="bold"
                         android:textColor="#333"/>
                     <EditText
@@ -96,7 +96,7 @@
                     <TextView
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="Bệnh nhân:"
+                        android:text="@string/patient_label"
                         android:textStyle="bold"
                         android:textColor="#333"/>
                     <EditText
@@ -120,7 +120,7 @@
                     <TextView
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="Giới tính:"
+                        android:text="@string/gender"
                         android:textStyle="bold"
                         android:textColor="#333"/>
                     <RadioGroup
@@ -132,12 +132,12 @@
                             android:id="@+id/radioMale"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Nam"/>
+                            android:text="@string/male"/>
                         <RadioButton
                             android:id="@+id/radioFemale"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Nữ"
+                            android:text="@string/female"
                             android:layout_marginStart="8dp"/>
                     </RadioGroup>
                 </LinearLayout>
@@ -152,7 +152,7 @@
                     <TextView
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="Ngày khám:"
+                        android:text="@string/appointment_date"
                         android:textStyle="bold"
                         android:textColor="#333"/>
                     <EditText
@@ -165,7 +165,7 @@
                         android:textSize="15sp"
                         android:focusable="false"
                         android:clickable="true"
-                        android:hint="Chọn ngày"
+                        android:hint="@string/select_date"
                         android:drawableEnd="@android:drawable/ic_menu_myplaces"/>
                 </LinearLayout>
 
@@ -179,7 +179,7 @@
                     <TextView
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="Thời gian:"
+                        android:text="@string/appointment_time"
                         android:textStyle="bold"
                         android:textColor="#333"/>
                     <EditText
@@ -192,7 +192,7 @@
                         android:textSize="15sp"
                         android:focusable="false"
                         android:clickable="true"
-                        android:hint="Chọn giờ"
+                        android:hint="@string/select_time"
                         android:drawableEnd="@android:drawable/ic_menu_recent_history"/>
                 </LinearLayout>
 
@@ -200,7 +200,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Lý do khám:"
+                    android:text="@string/reason_for_visit"
                     android:textStyle="bold"
                     android:textColor="#333"
                     android:layout_marginBottom="4dp"/>
@@ -219,7 +219,7 @@
                     android:id="@+id/btnConfirm"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
-                    android:text="XÁC NHẬN ĐẶT LỊCH"
+                    android:text="@string/confirm_booking"
                     android:layout_marginTop="24dp"
                     android:textStyle="bold"
                     android:textColor="#FFF"

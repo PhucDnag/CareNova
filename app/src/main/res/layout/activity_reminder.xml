@@ -17,7 +17,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="Nhắc nhở"
+            app:title="@string/reminder_title"
             app:navigationIcon="@drawable/ic_arrow_back"
             android:background="@android:color/white"/>
 
@@ -38,7 +38,7 @@
             android:id="@+id/btnPickTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chọn giờ"
+            android:text="@string/pick_time"
             android:layout_marginTop="8dp"
             app:icon="@drawable/bg_circle"
             app:iconPadding="6dp"
@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:hint="Tin nhắn">
+            android:hint="@string/message">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtMessage"
@@ -69,7 +69,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Chế độ rung"
+                android:text="@string/vibrate_mode"
                 android:textSize="16sp"/>
 
             <Switch
@@ -82,7 +82,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lặp lại"
+            android:text="@string/repeat"
             android:textStyle="bold"
             android:layout_marginTop="24dp"/>
 
@@ -94,37 +94,37 @@
 
             <CheckBox
                 android:id="@+id/cbMon"
-                android:text="Thứ 2"
+                android:text="@string/monday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <CheckBox
                 android:id="@+id/cbTue"
-                android:text="Thứ 3"
+                android:text="@string/tuesday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <CheckBox
                 android:id="@+id/cbWed"
-                android:text="Thứ 4"
+                android:text="@string/wednesday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <CheckBox
                 android:id="@+id/cbThu"
-                android:text="Thứ 5"
+                android:text="@string/thursday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <CheckBox
                 android:id="@+id/cbFri"
-                android:text="Thứ 6"
+                android:text="@string/friday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <CheckBox
                 android:id="@+id/cbSat"
-                android:text="Thứ 7"
+                android:text="@string/saturday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <CheckBox
                 android:id="@+id/cbSun"
-                android:text="Chủ nhật"
+                android:text="@string/sunday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -134,7 +134,7 @@
             android:id="@+id/btnConfirm"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="Xác nhận"
+            android:text="@string/confirm"
             android:textColor="#FFF"
             android:layout_marginTop="32dp"
             app:backgroundTint="#1A237E"

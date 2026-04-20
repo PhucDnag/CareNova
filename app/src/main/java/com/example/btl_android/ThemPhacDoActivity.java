@@ -55,7 +55,7 @@ public class ThemPhacDoActivity extends AppCompatActivity {
         String guide = edtGuide.getText().toString().trim();
 
         if (medicine.isEmpty() || method.isEmpty() || timesStr.isEmpty()) {
-            Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toast_fill_required_info), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -71,10 +71,10 @@ public class ThemPhacDoActivity extends AppCompatActivity {
         );
 
         if (success) {
-            Toast.makeText(this, "Thêm phác đồ thành công", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toast_add_treatment_success), Toast.LENGTH_SHORT).show();
             finish();
         } else {
-            Toast.makeText(this, "Thêm thất bại", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toast_add_failed), Toast.LENGTH_SHORT).show();
         }
     }
 }

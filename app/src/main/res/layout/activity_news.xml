@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:paddingHorizontal="4dp"
         app:navigationIcon="@drawable/ic_arrow_back"
-        app:title="Tin tức y tế"
+        app:title="@string/medical_news_title"
         app:titleTextColor="?attr/colorOnSurface" />
 
     <com.google.android.material.card.MaterialCardView
@@ -35,7 +35,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cập nhật mỗi ngày"
+                android:text="@string/daily_update"
                 android:textColor="?attr/colorOnPrimaryContainer"
                 android:textSize="12sp" />
 
@@ -43,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Tin sức khỏe đáng chú ý"
+                android:text="@string/health_highlight_news"
                 android:textColor="?attr/colorOnPrimaryContainer"
                 android:textSize="17sp"
                 android:textStyle="bold" />

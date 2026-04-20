@@ -33,7 +33,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lịch khám bệnh"
+            android:text="@string/medical_appointment_schedule"
             android:textSize="22sp"
             android:textStyle="bold"
             android:layout_marginStart="12dp"/>
@@ -83,24 +83,24 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bệnh nhân Nguyễn Thị A"
+                        android:text="@string/patient_a_sample"
                         android:textStyle="bold"
                         android:textSize="16sp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Khu A1, Tầng 2 - P205"/>
+                        android:text="@string/location_sample"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Giờ: 8:30"/>
+                        android:text="@string/time_sample_1"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Lý do khám: Da mẩn đỏ"/>
+                        android:text="@string/reason_skin_rash"/>
 
                 </LinearLayout>
             </LinearLayout>
@@ -138,7 +138,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bệnh nhân Nguyễn Thị B"
+                        android:text="@string/patient_b_sample"
                         android:textStyle="bold"
                         android:textSize="16sp"/>
 
@@ -150,7 +150,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Giờ: 10:30"/>
+                        android:text="@string/time_sample_2"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -196,7 +196,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Trang chủ"
+                android:text="@string/nav_home"
                 android:textSize="12sp"/>
         </LinearLayout>
 
@@ -217,7 +217,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lịch khám"
+                android:text="@string/nav_appointment"
                 android:textSize="12sp"/>
         </LinearLayout>
 
@@ -239,7 +239,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thông báo"
+                android:text="@string/nav_notification"
                 android:textSize="12sp"/>
         </LinearLayout>
 
@@ -261,7 +261,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cá nhân"
+                android:text="@string/nav_profile"
                 android:textSize="12sp"/>
         </LinearLayout>
 

@@ -14,6 +14,8 @@ import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
@@ -24,8 +26,9 @@ import static android.app.Activity.RESULT_OK;
 
 public class ProfileFragment extends Fragment {
 
-    private TextView tvProfileName, tvProfileId, tvInfor, tvDisplay;
+    private TextView tvProfileName, tvProfileId, tvInfor, tvDisplay, tvLanguage;
     private TextView tvMenuHistory, tvMenuReminder, tvMenuFeedback, tvMenuLogout;
+    private View layoutLanguage;
     private SwitchMaterial switchDarkModePatient;
     private ImageView ivProfileImage;
     private DatabaseHelper db;
@@ -52,10 +55,13 @@ public class ProfileFragment extends Fragment {
         tvMenuLogout = view.findViewById(R.id.tvMenuLogout);
         tvInfor = view.findViewById(R.id.tvinfor);
         tvDisplay = view.findViewById(R.id.tvdisplay);
+        tvLanguage = view.findViewById(R.id.tvLanguage);
+        layoutLanguage = view.findViewById(R.id.layoutLanguage);
         switchDarkModePatient = view.findViewById(R.id.switch_dark_mode_patient);
 
         loadPatientData();
         setupDarkModeToggle();
+        updateLanguageLabel();
         setupClickListeners();
     }
 
@@ -64,7 +70,7 @@ public class ProfileFragment extends Fragment {
 
         if (currentPatient1 != null) {
             tvProfileName.setText(currentPatient1.getFullName());
-            tvProfileId.setText("Mã số bệnh nhân: " + String.format("%06d", currentPatient1.getId()));
+            tvProfileId.setText(getString(R.string.patient_id_format, String.format("%06d", currentPatient1.getId())));
 
             if (currentPatient1.getProfileImagePath() != null && !currentPatient1.getProfileImagePath().isEmpty()) {
                 Uri imageUri = Uri.parse(currentPatient1.getProfileImagePath());
@@ -104,14 +110,53 @@ public class ProfileFragment extends Fragment {
         });
 
         tvDisplay.setOnClickListener(v -> switchDarkModePatient.toggle());
-        tvMenuFeedback.setOnClickListener(v -> Toast.makeText(getContext(), "Chức năng Phản hồi sẽ được phát triển sau!", Toast.LENGTH_SHORT).show());
+        if (layoutLanguage != null) {
+            layoutLanguage.setOnClickListener(v -> showLanguagePicker());
+        }
+        if (tvLanguage != null) {
+            tvLanguage.setOnClickListener(v -> showLanguagePicker());
+        }
+        tvMenuFeedback.setOnClickListener(v -> Toast.makeText(getContext(), getString(R.string.feedback_coming_soon), Toast.LENGTH_SHORT).show());
 
         tvMenuLogout.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), LoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
-            Toast.makeText(getContext(), "Đăng xuất thành công!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), getString(R.string.logout_success), Toast.LENGTH_SHORT).show();
         });
+    }
+
+    private void showLanguagePicker() {
+        String[] languageNames = {
+                getString(R.string.language_vietnamese),
+                getString(R.string.language_english)
+        };
+        String[] languageCodes = {"vi", "en"};
+
+        String currentLanguage = AppCompatDelegate.getApplicationLocales().toLanguageTags();
+        int checkedIndex = currentLanguage.startsWith("en") ? 1 : 0;
+
+        new AlertDialog.Builder(requireContext())
+                .setTitle(R.string.choose_language)
+                .setSingleChoiceItems(languageNames, checkedIndex, (dialog, which) -> {
+                    dialog.dismiss();
+                    LanguageManager.setLanguageAndRestart(requireActivity(), languageCodes[which]);
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
+    }
+
+    private void updateLanguageLabel() {
+        if (tvLanguage == null) {
+            return;
+        }
+
+        String currentLanguage = AppCompatDelegate.getApplicationLocales().toLanguageTags();
+        if (currentLanguage.startsWith("en")) {
+            tvLanguage.setText(getString(R.string.language_row_title, getString(R.string.language_english)));
+        } else {
+            tvLanguage.setText(getString(R.string.language_row_title, getString(R.string.language_vietnamese)));
+        }
     }
 
     @Override

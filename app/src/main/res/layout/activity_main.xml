@@ -34,7 +34,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Trang chủ"
+                android:text="@string/nav_home"
                 android:textColor="?attr/colorPrimary"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -56,7 +56,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lịch khám"
+                android:text="@string/nav_appointment"
                 android:textColor="?attr/colorOnSurfaceVariant"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -78,7 +78,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thông báo"
+                android:text="@string/nav_notification"
                 android:textColor="?attr/colorOnSurfaceVariant"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -100,7 +100,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cá nhân"
+                android:text="@string/nav_profile"
                 android:textColor="?attr/colorOnSurfaceVariant"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -153,7 +153,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="BS. Nguyễn A"
+                            android:text="@string/doctor_name_sample"
                             android:textColor="@color/white"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -162,7 +162,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:text="Trạng thái: Đang trực"
+                            android:text="@string/doctor_status_on_duty"
                             android:textColor="#E8EEFF"
                             android:textSize="14sp" />
                     </LinearLayout>
@@ -188,7 +188,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bệnh nhân chờ khám"
+                        android:text="@string/patient_waiting_title"
                         android:textColor="?attr/colorOnSurface"
                         android:textSize="17sp"
                         android:textStyle="bold" />
@@ -197,7 +197,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="Nguyễn Thị A - 8:30 - Đang chờ"
+                        android:text="@string/patient_waiting_sample"
                         android:textColor="?attr/colorOnSurfaceVariant"
                         android:textSize="14sp" />
 
@@ -213,7 +213,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Xem" />
+                            android:text="@string/view" />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btn_kham_ngay_1"
@@ -222,7 +222,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_weight="1"
-                            android:text="Khám ngay" />
+                            android:text="@string/examine_now" />
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -246,7 +246,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Thống kê hôm nay"
+                        android:text="@string/today_statistics"
                         android:textColor="?attr/colorOnSurface"
                         android:textSize="17sp"
                         android:textStyle="bold" />
@@ -255,21 +255,21 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="● Đã khám: 12"
+                        android:text="@string/stat_examined"
                         android:textColor="#16A34A"
                         android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="● Đang chờ: 8"
+                        android:text="@string/stat_waiting"
                         android:textColor="#D97706"
                         android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="● Khẩn cấp: 1"
+                        android:text="@string/stat_urgent"
                         android:textColor="#DC2626"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -300,7 +300,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Hồ sơ"
+                        android:text="@string/record"
                         android:textColor="?attr/colorOnSurface"
                         android:textSize="13sp" />
                 </LinearLayout>
@@ -324,7 +324,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Phác đồ"
+                        android:text="@string/treatment_plan"
                         android:textColor="?attr/colorOnSurface"
                         android:textSize="13sp" />
                 </LinearLayout>
@@ -348,7 +348,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Bệnh nhân"
+                        android:text="@string/patient"
                         android:textColor="?attr/colorOnSurface"
                         android:textSize="13sp" />
                 </LinearLayout>
@@ -359,7 +359,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 android:gravity="center"
-                android:text="Tin tức"
+                android:text="@string/news"
                 android:textColor="?attr/colorOnSurface"
                 android:textSize="20sp"
                 android:textStyle="bold" />

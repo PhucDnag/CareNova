@@ -25,7 +25,7 @@
             android:layout_width="130dp"
             android:layout_height="48dp"
             android:backgroundTint="#2196F3"
-            android:text="Xem thông tin"
+            android:text="@string/view_info"
             android:textColor="#FFFFFF"
             android:textSize="12sp" />
     </LinearLayout>

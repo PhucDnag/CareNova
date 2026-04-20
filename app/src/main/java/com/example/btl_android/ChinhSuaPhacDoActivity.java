@@ -72,7 +72,7 @@ public class ChinhSuaPhacDoActivity extends AppCompatActivity {
 
         if (medicine.isEmpty() || method.isEmpty() || timesStr.isEmpty()) {
             Toast.makeText(this,
-                    "Vui lòng nhập đầy đủ thông tin",
+                    getString(R.string.toast_fill_required_info),
                     Toast.LENGTH_SHORT).show();
             return;
         }
@@ -90,12 +90,12 @@ public class ChinhSuaPhacDoActivity extends AppCompatActivity {
 
         if (success) {
             Toast.makeText(this,
-                    "Chỉnh sửa thành công",
+                    getString(R.string.toast_edit_success),
                     Toast.LENGTH_SHORT).show();
             finish();
         } else {
             Toast.makeText(this,
-                    "Chỉnh sửa thất bại",
+                    getString(R.string.toast_edit_failed),
                     Toast.LENGTH_SHORT).show();
         }
     }

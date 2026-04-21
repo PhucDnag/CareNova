@@ -1,155 +1,166 @@
-# BTL Android - Uni Care
+# CareNova
 
-`BTL_Android` là một ứng dụng Android dùng để hỗ trợ quản lý y tế cho bệnh nhân và bác sĩ. Dự án được xây dựng bằng **Java**, sử dụng **AndroidX**, **Material Components**, và lưu trữ dữ liệu cục bộ bằng **SQLite** thông qua `DatabaseHelper`.
+CareNova is an Android healthcare app built for both patients and doctors. It supports role-based sign in, appointment booking and management, medical records, reminders, notifications, profile management, language switching, and a simple AI-assisted workflow through an API key.
 
-## Tổng quan
+## Main features
 
-Ứng dụng có các nhóm chức năng chính:
+- Role-based login for **Patient** and **Doctor**
+- Home dashboard with services and shortcuts
+- Appointment booking and appointment detail views
+- Doctor workspace for examining patients, viewing records, and managing treatment plans
+- Patient profile with:
+  - personal information
+  - medical history
+  - reminder setup
+  - dark mode
+  - language switch
+  - about us and feedback actions
+  - logout
+- Notifications screen for updates and reminders
+- Vietnamese and English localization
+- AI integration using a Groq API key stored in Gradle properties
 
-- Đăng nhập theo vai trò: bệnh nhân / bác sĩ
-- Trang chủ hiển thị các dịch vụ y tế nổi bật
-- Đặt lịch khám và xem lịch hẹn
-- Quản lý hồ sơ cá nhân
-- Theo dõi lịch sử khám bệnh và bệnh án
-- Quản lý phác đồ điều trị
-- Thông báo, nhắc nhở và các tiện ích liên quan
-- Hỗ trợ đổi ngôn ngữ `Tiếng Việt` / `English`
+## Tech stack
 
-## Công nghệ sử dụng
+- **Language:** Java
+- **UI:** Android XML layouts
+- **Build system:** Gradle Kotlin DSL
+- **Min SDK:** 24
+- **Target SDK:** 36
+- **Libraries used:**
+  - AndroidX AppCompat
+  - Material Components
+  - ConstraintLayout
+  - Glide
+  - Jsoup
+  - OkHttp
+  - org.json
 
-- **Ngôn ngữ**: Java
-- **UI**: XML Layout, Material Design
-- **Kiến trúc**: Activity / Fragment / Adapter theo từng màn hình
-- **Lưu trữ dữ liệu**: SQLite nội bộ qua `DatabaseHelper`
-- **Xử lý ảnh**: Glide
-- **Tải dữ liệu web / API**: Jsoup, OkHttp, JSON
-- **Đa ngôn ngữ**: `values/strings.xml` và `values-vi/strings.xml`
-
-## Cấu trúc thư mục chính
+## Project structure
 
 ```text
 app/
-├── src/main/java/com/example/btl_android/
-│   ├── Adapter/              # RecyclerView adapters
-│   ├── Database/             # SQLite helper và truy vấn dữ liệu
-│   ├── Object/               # Model / entity classes
-│   ├── ...Activity.java      # Các màn hình chức năng
-│   ├── ...Fragment.java      # Các fragment UI
-│   └── LanguageManager.java  # Xử lý đổi ngôn ngữ
-├── src/main/res/
-│   ├── layout/               # Giao diện XML
-│   ├── drawable/             # Icon, shape, image resource
-│   ├── values/               # String mặc định, màu, style
-│   └── values-vi/            # Chuỗi tiếng Việt
+├── src/main/
+│   ├── java/com/example/btl_android/
+│   │   ├── Adapter/            # RecyclerView adapters
+│   │   ├── Database/           # SQLite database helper and persistence logic
+│   │   ├── Object/             # Data models
+│   │   ├── LoginActivity.java  # Entry screen
+│   │   ├── MainActivity1.java  # Main app container
+│   │   └── ...                 # Activities, fragments, utilities
+│   ├── res/
+│   │   ├── layout/             # XML screens
+│   │   ├── drawable/           # Icons, backgrounds, images
+│   │   ├── mipmap*/            # App launcher icons
+│   │   ├── values/             # English strings, colors, themes
+│   │   └── values-vi/          # Vietnamese strings
+│   └── AndroidManifest.xml
+├── build.gradle.kts
+└── proguard-rules.pro
 ```
 
-## Cách lưu trữ dữ liệu
+## How the app works
 
-Dự án không dùng Firebase hay server riêng cho dữ liệu nghiệp vụ chính. Dữ liệu được lưu **cục bộ trên thiết bị** bằng SQLite:
+### 1. Sign in and role selection
+The app starts from `LoginActivity`. Users choose whether they are a patient or a doctor. Each role routes to a different set of screens and features.
 
-- `DatabaseHelper` tạo bảng và quản lý truy vấn.
-- Các model trong `app/src/main/java/com/example/btl_android/Object/` đại diện cho từng thực thể như:
-  - bệnh nhân
-  - lịch hẹn
-  - thông báo
-  - bệnh án
-  - phác đồ điều trị
-- Các `Adapter` hiển thị danh sách dữ liệu lên `RecyclerView`.
+### 2. Localization and theme
+The app supports English and Vietnamese through Android resource folders:
+- `res/values/strings.xml`
+- `res/values-vi/strings.xml`
 
-### Luồng lưu trữ điển hình
+Language switching is handled with `AppCompatDelegate.setApplicationLocales(...)` and the selected locale is applied across the app.
 
-1. Người dùng nhập dữ liệu từ màn hình UI.
-2. Activity / Fragment gọi `DatabaseHelper` để thêm hoặc cập nhật dữ liệu.
-3. Dữ liệu được đọc lại từ SQLite.
-4. Adapter nhận danh sách và render lên giao diện.
+Dark mode is managed separately per role using `ThemeRoleManager`.
 
-## Cách hoạt động
+### 3. Persistence and storage
+The app stores local data in SQLite through `DatabaseHelper`.
 
-### 1. Điều hướng màn hình
+Typical stored data includes:
+- patient profiles
+- appointments
+- notifications
+- medical records
+- treatment plans
+- reminders
 
-- Mỗi chức năng chính được tách thành một `Activity` hoặc `Fragment` riêng.
-- Từ màn hình chính, người dùng đi đến các màn hình chi tiết như lịch hẹn, hồ sơ, bệnh án, phác đồ, thông báo, nhắc nhở...
+Some UI images are loaded with Glide, and profile image paths can be stored in the database.
 
-### 2. Phân quyền theo vai trò
+### 4. AI/API configuration
+The project reads the Groq API key from Gradle properties and exposes it through `BuildConfig.GROQ_API_KEY`.
 
-- Ứng dụng có luồng riêng cho **bệnh nhân** và **bác sĩ**.
-- Tùy vai trò, giao diện và chức năng sẽ khác nhau.
+The key is declared in `app/build.gradle.kts`:
 
-### 3. Đa ngôn ngữ
+```kotlin
+val groqApiKey = (project.findProperty("GROQ_API_KEY") as String?) ?: ""
+buildConfigField("String", "GROQ_API_KEY", "\"$groqApiKey\"")
+```
 
-- Chuỗi tiếng Anh nằm trong `app/src/main/res/values/strings.xml`
-- Chuỗi tiếng Việt nằm trong `app/src/main/res/values-vi/strings.xml`
-- `LanguageManager` dùng `AppCompatDelegate.setApplicationLocales(...)` để đổi locale và khởi động lại ứng dụng.
+This means you should store the actual key in your local Gradle properties instead of hardcoding it into source files.
 
-### 4. Dữ liệu động
+## Local setup
 
-- Các danh sách như lịch hẹn, thông báo, bệnh án được hiển thị bằng `RecyclerView`.
-- Adapter chịu trách nhiệm bind dữ liệu từ model sang UI.
+### Requirements
+- Android Studio
+- JDK 11
+- Android SDK 36 or compatible
+- Git
 
-## Cấu hình dự án
+### Run the app locally
 
-### Yêu cầu môi trường
+1. Clone the repository
+2. Open the project in Android Studio
+3. Sync Gradle
+4. Add your Groq API key if you use AI features
+5. Run the app on an emulator or device
 
-- **Android Studio** mới
-- **JDK 11**
-- **Android SDK 36**
-- **Min SDK**: 24
-
-### Build script
-
-- Dự án dùng Gradle Kotlin DSL:
-  - `build.gradle.kts`
-  - `app/build.gradle.kts`
-- Dependency versions được quản lý trong `gradle/libs.versions.toml`
-
-### Biến môi trường / API key
-
-Dự án có khai báo:
-
-- `GROQ_API_KEY`
-
-Giá trị này được lấy từ Gradle property:
+### Add the API key
+Create or edit your local `gradle.properties` file and add:
 
 ```properties
 GROQ_API_KEY=your_api_key_here
 ```
 
-Nếu không có key, ứng dụng vẫn có thể build, nhưng những tính năng cần API này có thể không hoạt động đầy đủ.
+Do not commit real secrets to GitHub.
 
-## Chạy dự án
+## Build configuration
 
-1. Clone repository về máy.
-2. Mở bằng Android Studio.
-3. Đồng bộ Gradle.
-4. Nếu cần, khai báo `GROQ_API_KEY` trong file `gradle.properties`.
-5. Chạy `app` trên emulator hoặc thiết bị thật.
+Important settings from `app/build.gradle.kts`:
 
-## Ghi chú cho GitHub
+- `applicationId`: `com.example.btl_android`
+- `minSdk`: `24`
+- `compileSdk`: `36`
+- `targetSdk`: `36`
+- `versionName`: `1.0`
+- `versionCode`: `1`
 
-Khi đẩy lên GitHub, nên:
+## AndroidManifest
 
-- Không commit các file build tạm thời trong `app/build/`
-- Không commit thư mục `.gradle/`
-- Không commit file `.idea/workspace.xml` nếu không cần thiết
-- Không đưa API key thật lên repository công khai
+The manifest registers:
+- launcher activity
+- patient screens
+- doctor screens
+- reminder receiver
+- required permissions such as internet, vibration, notifications, and exact alarms
 
-### Nên giữ lại
+App name is read from `@string/app_name`, so changing the string resource updates the displayed app name.
 
-- `app/src/main/**`
-- `gradle/**`
-- `build.gradle.kts`
-- `settings.gradle.kts`
-- `README.md`
-- `proguard-rules.pro`
+## Naming and branding
 
-## Tình trạng hiện tại
+The app name displayed to users is `CareNova`. If you are renaming from an older project name, make sure these locations are updated:
+- `res/values/strings.xml` → `app_name`
+- `res/values-vi/strings.xml` → `app_name`
+- launcher icon assets if you want to match the new branding
+- README, GitHub repo title, and release notes
 
-Dự án đang được phát triển thêm các phần:
+## Notes for GitHub
 
-- hoàn thiện chuyển ngôn ngữ đồng bộ hơn
-- chuẩn hóa dữ liệu hiển thị theo locale
-- tối ưu giao diện một số màn hình
+Before pushing to GitHub:
+- remove local build outputs from version control
+- do not commit secrets such as API keys
+- keep only source files, resources, and configuration needed to build the app
+- if you generate new launcher icons, keep the final exported assets in `res/mipmap*`
 
-## Tác giả
+## License
 
-Hồng Phúc
+Add your preferred license here before publishing the repository.

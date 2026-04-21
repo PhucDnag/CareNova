@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Uni Care</string>
+    <string name="app_name">CareNova</string>
     <string name="patient_id_format">Mã số bệnh nhân: %1$s</string>
     <string name="feedback_coming_soon">Chức năng Phản hồi sẽ được phát triển sau!</string>
     <string name="logout_success">Đăng xuất thành công!</string>

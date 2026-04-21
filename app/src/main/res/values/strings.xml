@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Uni Care</string>
+    <string name="app_name">CareNova</string>
     <string name="patient_id_format">Patient ID: %1$s</string>
     <string name="feedback_coming_soon">Feedback feature will be available soon!</string>
     <string name="about_us_title">About Uni Care</string>

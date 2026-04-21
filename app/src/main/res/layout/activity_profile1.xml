@@ -98,7 +98,7 @@
                 android:paddingVertical="4dp">
 
                 <TextView
-                    android:id="@+id/tvabout"
+                    android:id="@+id/tvAboutUs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_notification"
@@ -268,17 +268,17 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/tvMenuLogout"
-            style="@style/Widget.Material3.Button.TextButton"
+            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
             android:paddingVertical="12dp"
             android:text="@string/logout"
-            android:textColor="@color/error"
+            app:backgroundTint="@color/error"
+            app:cornerRadius="16dp"
             app:icon="@drawable/ic_logout"
-            app:iconTint="@color/error" />
+            app:iconTint="@android:color/white"
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

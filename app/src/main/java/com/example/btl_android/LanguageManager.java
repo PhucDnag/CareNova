@@ -1,6 +1,7 @@
 package com.example.btl_android;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatDelegate;
@@ -18,5 +19,9 @@ public class LanguageManager {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         activity.startActivity(intent);
         activity.finish();
+    }
+
+    public static boolean isEnglish(Context context) {
+        return AppCompatDelegate.getApplicationLocales().toLanguageTags().startsWith("en");
     }
 }

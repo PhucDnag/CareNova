@@ -17,6 +17,8 @@ import com.example.btl_android.Object.Appointment;
 import com.example.btl_android.R;
 import com.example.btl_android.SetReminderActivity;
 
+import static com.example.btl_android.LanguageManager.isEnglish;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -48,10 +50,10 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
 
         String validatedStatus = getValidatedStatus(appointment);
 
-        holder.tvDoctorName.setText("Bác sĩ: " + appointment.getDoctorName());
-        holder.tvSpecialty.setText("Chuyên khoa: " + appointment.getSpecialty());
-        holder.tvAppointmentDateTime.setText("Thời gian: " + appointment.getAppointmentTime() + " - " + appointment.getAppointmentDate());
-        holder.tvAppointmentStatus.setText(validatedStatus);
+        holder.tvDoctorName.setText(getLocalizedLabel(R.string.doctor_label, R.string.doctor_label_en) + appointment.getDoctorName());
+        holder.tvSpecialty.setText(getLocalizedLabel(R.string.specialty_label, R.string.specialty_label_en) + appointment.getSpecialty());
+        holder.tvAppointmentDateTime.setText(getLocalizedLabel(R.string.time_label, R.string.time_label_en) + appointment.getAppointmentTime() + " - " + appointment.getAppointmentDate());
+        holder.tvAppointmentStatus.setText(getLocalizedStatus(validatedStatus));
 
         holder.btnSetReminder.setVisibility(View.VISIBLE);
         holder.btnSetReminder.setOnClickListener(v -> {
@@ -60,17 +62,16 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
         });
 
         switch (validatedStatus) {
-            case "Sắp tới":
-            case "Chờ duyệt":
-                holder.tvAppointmentStatus.setBackgroundResource("Chờ duyệt".equals(validatedStatus) ? R.drawable.status_pending_background : R.drawable.status_background);
+            case "pending":
+                holder.tvAppointmentStatus.setBackgroundResource(R.drawable.status_pending_background);
                 holder.btnCancelAppointment.setVisibility(View.VISIBLE);
                 holder.btnCancelAppointment.setOnClickListener(v -> showCancelConfirmationDialog(appointment, position));
                 break;
-            case "Đã hủy":
+            case "cancelled":
                 holder.tvAppointmentStatus.setBackgroundResource(R.drawable.status_cancelled_background);
                 holder.btnCancelAppointment.setVisibility(View.GONE);
                 break;
-            case "Đã qua":
+            case "completed":
                 holder.tvAppointmentStatus.setBackgroundResource(R.drawable.status_completed_background);
                 holder.btnCancelAppointment.setVisibility(View.GONE);
                 break;
@@ -88,8 +89,11 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
     }
 
     private String getValidatedStatus(Appointment appointment) {
-        if ("Đã hủy".equals(appointment.getStatus()) || "Chờ duyệt".equals(appointment.getStatus())) {
-            return appointment.getStatus();
+        if ("Đã hủy".equals(appointment.getStatus()) || "cancelled".equalsIgnoreCase(appointment.getStatus())) {
+            return "cancelled";
+        }
+        if ("Chờ duyệt".equals(appointment.getStatus()) || "pending".equalsIgnoreCase(appointment.getStatus())) {
+            return "pending";
         }
 
         try {
@@ -97,29 +101,46 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
             Date appointmentDateTime = sdf.parse(appointment.getAppointmentDate() + " " + appointment.getAppointmentTime());
             Date now = new Date();
 
-            if (now.after(appointmentDateTime)) {
-                return "Đã qua";
+            if (appointmentDateTime != null && now.after(appointmentDateTime)) {
+                return "completed";
             }
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        
-        return "Sắp tới";
+
+        return "upcoming";
     }
 
     private void showCancelConfirmationDialog(Appointment appointment, int position) {
         new AlertDialog.Builder(context)
-            .setTitle("Xác nhận hủy lịch")
-            .setMessage("Bạn có chắc chắn muốn hủy lịch khám này không?")
-            .setPositiveButton("Có", (dialog, which) -> {
+            .setTitle(isEnglish(context) ? "Cancel appointment" : "Xác nhận hủy lịch")
+            .setMessage(isEnglish(context) ? "Are you sure you want to cancel this appointment?" : "Bạn có chắc chắn muốn hủy lịch khám này không?")
+            .setPositiveButton(isEnglish(context) ? "Yes" : "Có", (dialog, which) -> {
                 boolean success = db.cancelAppointment(appointment.getId());
                 if (success) {
-                    appointment.setStatus("Đã hủy");
+                    appointment.setStatus("cancelled");
                     notifyItemChanged(position);
                 }
             })
-            .setNegativeButton("Không", null)
+            .setNegativeButton(isEnglish(context) ? "No" : "Không", null)
             .show();
+    }
+
+    private String getLocalizedStatus(String status) {
+        switch (status) {
+            case "pending":
+                return isEnglish(context) ? "Pending approval" : "Chờ duyệt";
+            case "cancelled":
+                return isEnglish(context) ? "Cancelled" : "Đã hủy";
+            case "completed":
+                return isEnglish(context) ? "Completed" : "Đã qua";
+            default:
+                return isEnglish(context) ? "Upcoming" : "Sắp tới";
+        }
+    }
+
+    private String getLocalizedLabel(int viResId, int enResId) {
+        return isEnglish(context) ? context.getString(enResId) : context.getString(viResId);
     }
 
     @Override

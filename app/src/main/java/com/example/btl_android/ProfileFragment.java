@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import androidx.annotation.NonNull;
@@ -27,7 +28,7 @@ import static android.app.Activity.RESULT_OK;
 public class ProfileFragment extends Fragment {
 
     private TextView tvProfileName, tvProfileId, tvInfor, tvDisplay, tvLanguage;
-    private TextView tvMenuHistory, tvMenuReminder, tvMenuFeedback, tvMenuLogout;
+    private TextView tvAboutUs, tvMenuHistory, tvMenuReminder, tvMenuFeedback, tvMenuLogout;
     private View layoutLanguage;
     private SwitchMaterial switchDarkModePatient;
     private ImageView ivProfileImage;
@@ -49,6 +50,7 @@ public class ProfileFragment extends Fragment {
         tvProfileName = view.findViewById(R.id.tvProfileName);
         tvProfileId = view.findViewById(R.id.tvProfileId);
         ivProfileImage = view.findViewById(R.id.ivProfileImage);
+        tvAboutUs = view.findViewById(R.id.tvAboutUs);
         tvMenuHistory = view.findViewById(R.id.tvMenuHistory);
         tvMenuReminder = view.findViewById(R.id.tvMenuReminder);
         tvMenuFeedback = view.findViewById(R.id.tvMenuFeedback);
@@ -79,7 +81,7 @@ public class ProfileFragment extends Fragment {
                 ivProfileImage.setImageResource(R.drawable.ic_profile);
             }
         } else {
-            Toast.makeText(getContext(), "Lỗi: Không tải được thông tin cá nhân.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), getString(R.string.toast_error_missing_patient_info), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -99,6 +101,8 @@ public class ProfileFragment extends Fragment {
             startActivityForResult(intent, PERSONAL_INFO_REQUEST);
         });
 
+        tvAboutUs.setOnClickListener(v -> showAboutUsDialog());
+
         tvMenuHistory.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), MedicalHistoryActivity.class);
             startActivity(intent);
@@ -116,14 +120,44 @@ public class ProfileFragment extends Fragment {
         if (tvLanguage != null) {
             tvLanguage.setOnClickListener(v -> showLanguagePicker());
         }
-        tvMenuFeedback.setOnClickListener(v -> Toast.makeText(getContext(), getString(R.string.feedback_coming_soon), Toast.LENGTH_SHORT).show());
+        tvMenuFeedback.setOnClickListener(v -> openFeedback());
 
-        tvMenuLogout.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), LoginActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
-            Toast.makeText(getContext(), getString(R.string.logout_success), Toast.LENGTH_SHORT).show();
-        });
+        tvMenuLogout.setOnClickListener(v -> showLogoutConfirmation());
+    }
+
+    private void showAboutUsDialog() {
+        new MaterialAlertDialogBuilder(requireContext())
+                .setTitle(R.string.about_us_title)
+                .setMessage(R.string.about_us_message)
+                .setPositiveButton(android.R.string.ok, null)
+                .show();
+    }
+
+    private void openFeedback() {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:support@unicare.app"));
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.feedback_email_subject));
+        intent.putExtra(Intent.EXTRA_TEXT, "");
+
+        if (intent.resolveActivity(requireContext().getPackageManager()) != null) {
+            startActivity(Intent.createChooser(intent, getString(R.string.feedback_with_us)));
+        } else {
+            Toast.makeText(getContext(), getString(R.string.feedback_no_app), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void showLogoutConfirmation() {
+        new MaterialAlertDialogBuilder(requireContext())
+                .setTitle(R.string.logout_confirm_title)
+                .setMessage(R.string.logout_confirm_message)
+                .setPositiveButton(R.string.logout, (dialog, which) -> {
+                    Intent intent = new Intent(getActivity(), LoginActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    Toast.makeText(getContext(), getString(R.string.logout_success), Toast.LENGTH_SHORT).show();
+                })
+                .setNegativeButton(R.string.cancel, null)
+                .show();
     }
 
     private void showLanguagePicker() {

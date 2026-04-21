@@ -2,6 +2,12 @@
     <string name="app_name">Uni Care</string>
     <string name="patient_id_format">Patient ID: %1$s</string>
     <string name="feedback_coming_soon">Feedback feature will be available soon!</string>
+    <string name="about_us_title">About Uni Care</string>
+    <string name="about_us_message">Uni Care helps patients and doctors manage appointments, medical records, reminders, and health updates in one place.</string>
+    <string name="feedback_email_subject">Uni Care feedback</string>
+    <string name="feedback_no_app">No email app found to send feedback.</string>
+    <string name="logout_confirm_title">Log out</string>
+    <string name="logout_confirm_message">Are you sure you want to log out?</string>
     <string name="logout_success">Logged out successfully!</string>
     <string name="choose_language">Choose language</string>
     <string name="language_vietnamese">Tiếng Việt</string>
@@ -9,6 +15,12 @@
     <string name="language_row_title">Language: %1$s</string>
     <string name="doctor_logout">Logged out</string>
     <string name="doctor_profile_title">Doctor profile</string>
+    <string name="doctor_label">Doctor: </string>
+    <string name="doctor_label_en">Doctor: </string>
+    <string name="specialty_label">Specialty: </string>
+    <string name="specialty_label_en">Specialty: </string>
+    <string name="time_label">Time: </string>
+    <string name="time_label_en">Time: </string>
     <string name="doctor_dark_mode_title">Dark mode</string>
     <string name="doctor_dark_mode_subtitle">Turn on dark theme for better comfort</string>
     <string name="doctor_language_title">Language</string>
